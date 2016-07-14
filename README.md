@@ -1,4 +1,4 @@
-# circle_ci_test
+# circle_ci_deploy
 
 ##事前設定
 <https://github.com/CircleAround/git_web_hook>
