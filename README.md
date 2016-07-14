@@ -35,6 +35,14 @@ git pull 専用ユーザー deployer(名前は任意)を作成している前提
     cd /path/to/file
     git pull origin master
 
+##circle.yml
+Webhooksを複数設定する場合は以下
+
+    notify:
+      webhooks:
+        - url: http://hogehoge.jp/ci/hook.php?secret=hogehoge
+        - url: http://hogehoge2.jp/ci/hook.php?secret=hogehoge
+
 ##php.ini
 環境変数を使えるようにphp.iniの設定変更
 
