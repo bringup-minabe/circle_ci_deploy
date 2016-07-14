@@ -1,0 +1,10 @@
+machine:
+  timezone: Asia/Tokyo
+
+test:
+  override:
+    - exit 0
+
+notify:
+  webhooks:
+    - url: http://hogehoge.jp/hook.php?secret=hogehoge
