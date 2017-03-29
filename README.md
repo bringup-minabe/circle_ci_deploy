@@ -1,26 +1,31 @@
 # circle_ci_deploy
 
 ##事前設定
+
 [<https://github.com/CircleAround/git_web_hook>](<https://github.com/CircleAround/git_web_hook>)
 
 ##動作流れ
+
 1. GitHubへPUSH
 2. CircleCiがPUSHを検知し、ビルド開始
 3. ビルド後CircleCiのWebhookよりデプロイをおこなうサーバーのhook.phpへhook
 4. hook.phpでデプロイ処理
 
 ##Git
+
 デプロイをおこなうサーバーからのgit接続時のportは**443**に変更
 
 [<https://help.github.com/articles/using-ssh-over-the-https-port/>](<https://help.github.com/articles/using-ssh-over-the-https-port/>)
 
 ##.htaccess
+
     SetEnv CI_SECRET hogehoge #ymlで設定したsecret
     SetEnv CI_MODE normal #debugでdebugモード
     SetEnv CI_BRANCH_NAME master #対象ブランチ
     SetEnv CI_LOG_PATH logs/ #ログ保存先パス
 
 ##apacheユーザでPHPからsudo権限でシェルを叩く
+
 git pull 専用ユーザー deployer(名前は任意)を作成している前提で書きます。
 
 [<http://blog.ousaan.com/index.cgi/links/20120504.html>](<http://blog.ousaan.com/index.cgi/links/20120504.html>)
@@ -37,6 +42,7 @@ git pull 専用ユーザー deployer(名前は任意)を作成している前提
     git pull origin master
 
 ##circle.yml
+
 Webhooksを複数設定する場合は以下
 
     notify:
@@ -45,6 +51,7 @@ Webhooksを複数設定する場合は以下
         - url: http://hogehoge2.jp/ci/hook.php?secret=hogehoge
 
 ##php.ini
+
 環境変数を使えるようにphp.iniの設定変更
 
     #$_ENV が使えない設定の例
