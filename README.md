@@ -1,6 +1,6 @@
 # circle_ci_deploy
 
-##事前設定
+## 事前設定
 
 [<https://github.com/CircleAround/git_web_hook>](<https://github.com/CircleAround/git_web_hook>)
 
