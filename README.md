@@ -1,7 +1,7 @@
 # circle_ci_deploy
 
 ##事前設定
-<https://github.com/CircleAround/git_web_hook>
+[<https://github.com/CircleAround/git_web_hook>](<https://github.com/CircleAround/git_web_hook>)
 
 ##動作流れ
 1. GitHubへPUSH
@@ -12,7 +12,7 @@
 ##Git
 デプロイをおこなうサーバーからのgit接続時のportは**443**に変更
 
-  <https://help.github.com/articles/using-ssh-over-the-https-port/>
+[<https://help.github.com/articles/using-ssh-over-the-https-port/>](<https://help.github.com/articles/using-ssh-over-the-https-port/>)
 
 ##.htaccess
     SetEnv CI_SECRET hogehoge #ymlで設定したsecret
@@ -23,7 +23,7 @@
 ##apacheユーザでPHPからsudo権限でシェルを叩く
 git pull 専用ユーザー deployer(名前は任意)を作成している前提で書きます。
 
-<http://blog.ousaan.com/index.cgi/links/20120504.html>
+[<http://blog.ousaan.com/index.cgi/links/20120504.html>](<http://blog.ousaan.com/index.cgi/links/20120504.html>)
 
     $ sudo visudo
 
@@ -31,6 +31,7 @@ git pull 専用ユーザー deployer(名前は任意)を作成している前提
     Defaults:apache !requiretty # apacheだけ端末デバイス(Terminal)以外からのアクセスを許す
 
 ##pull.sh
+
     #!/bin/sh
     cd /path/to/file
     git pull origin master
@@ -46,8 +47,8 @@ Webhooksを複数設定する場合は以下
 ##php.ini
 環境変数を使えるようにphp.iniの設定変更
 
-    ; $_ENV が使えない設定の例
+    #$_ENV が使えない設定の例
     variables_order = "GPCS"
 
-    ; $_ENV が使える設定の例
+    #$_ENV が使える設定の例
     variables_order = "EGPCS"
